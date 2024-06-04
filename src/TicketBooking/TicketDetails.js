@@ -7,22 +7,14 @@ const TicketDetails = (newAddData, Ddata) => {
   const onFinish = (values) => {
     newAddData(values);
     form.resetFields();
-
-    console.log("data", Ddata);
   };
+  console.log("Ddata", Ddata);
 
   return (
     <div>
       <h2>Ticket Details</h2>
-      <Form
-        form={form}
-        onFinish={onFinish}
-        initialValues={{ name: "", number: "" }}
-      >
-        <Form.Item label="name" name="name">
-          <Input />
-        </Form.Item>
-        <Form.Item label="number" name="number">
+      <Form form={form} onFinish={onFinish} initialValues={{ fname: "" }}>
+        <Form.Item label="name" name="fname">
           <Input />
         </Form.Item>
         <Form.Item>
@@ -31,6 +23,10 @@ const TicketDetails = (newAddData, Ddata) => {
           </Button>
         </Form.Item>
       </Form>
+
+      {Ddata.map((i, index) => (
+        <li>{i.fname} </li>
+      ))}
     </div>
   );
 };
