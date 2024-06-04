@@ -1,9 +1,13 @@
 import { Button, DatePicker, Form, Input, Select, TimePicker } from "antd";
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const TicketDetails = ({ newAddData, Ddata }) => {
+  const { title } = useParams();
   const [form] = Form.useForm();
   console.log("Ddata", Ddata);
+
+  console.log("title", title);
 
   const onFinish = (values) => {
     newAddData(values);
@@ -12,16 +16,24 @@ const TicketDetails = ({ newAddData, Ddata }) => {
 
   const options = [
     {
-      label: "Thalaivan",
-      value: "Thalaivan",
+      label: "1",
+      value: "1",
     },
     {
-      label: "Manjumal Boys",
-      value: "Manjumal Boys",
+      label: "2",
+      value: "2",
     },
     {
-      label: "Mr & miss Mahi",
-      value: "Mr & miss Mahi",
+      label: "3",
+      value: "3",
+    },
+    {
+      label: "4",
+      value: "4",
+    },
+    {
+      label: "5",
+      value: "5",
     },
   ];
 
@@ -33,10 +45,10 @@ const TicketDetails = ({ newAddData, Ddata }) => {
           <Input />
         </Form.Item>
         <Form.Item label="Movie Name" name="mname">
-          <Select options={options} />
+          <Select defaultValue={title} />
         </Form.Item>
         <Form.Item label="Number of Ticket" name="nof">
-          <Input />
+          <Select options={options} />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">

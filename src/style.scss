@@ -23,7 +23,13 @@
     font-size: 28px;
     text-decoration: none;
     display: flex;
+    justify-content: start;
+}
+
+.nav {
+    display: flex;
     justify-content: end;
+    font-size: 14px;
 }
 
 .actionlinks {
