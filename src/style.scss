@@ -44,3 +44,10 @@
 .b2 {
     background-color: red;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 30px;
+    padding: 20px;
+  }
