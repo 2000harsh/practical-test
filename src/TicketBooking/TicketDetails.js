@@ -1,4 +1,13 @@
-import { Button, DatePicker, Form, Input, Select, TimePicker } from "antd";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Row,
+  Col,
+  Select,
+  TimePicker,
+} from "antd";
 import React from "react";
 import { useParams } from "react-router-dom";
 
@@ -38,30 +47,61 @@ const TicketDetails = ({ newAddData, Ddata }) => {
   ];
 
   return (
-    <div>
+    <div className="    ">
       <h2>Ticket Details</h2>
-      <Form form={form} onFinish={onFinish} initialValues={{ fname: "" }}>
-        <Form.Item label="Customer Name" name="fname">
-          <Input />
-        </Form.Item>
-        <Form.Item label="Movie Name" name="mname">
-          <Select defaultValue={title} />
-        </Form.Item>
-        <Form.Item label="Number of Ticket" name="nof">
-          <Select options={options} />
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Book
-          </Button>
-        </Form.Item>
+      <Form
+        className="form mb-5"
+        form={form}
+        onFinish={onFinish}
+        initialValues={{ fname: "" }}
+      >
+        <Row gutter={[16, 16]}>
+          <Col span={24}>
+            <Form.Item
+              label="Customer Name"
+              name="fname"
+              rules={[
+                { required: true, message: "Please Enter customer name" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Form.Item label="Movie Name" name="mname">
+              <Select defaultValue={title} />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Form.Item label="Number of Ticket" name="nof">
+              <Select options={options} />
+            </Form.Item>
+          </Col>
+          <Col span={24}>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                Book
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
       </Form>
 
-      <table style={{ border: "1px solid black" }}>
+      <Button style={{ marginTop: "50px" }} type="primary">
+        Print / Download
+      </Button>
+      <table
+        className="mt-5"
+        style={{
+          border: "1px solid black",
+
+          backgroundColor: "aquamarine",
+        }}
+      >
         <thead>
           <tr>
             <th>First Name</th>
-            <th>Middle Name</th>
+            <th>Movie Name</th>
             <th>Number of Tickets</th>
           </tr>
         </thead>
@@ -69,7 +109,7 @@ const TicketDetails = ({ newAddData, Ddata }) => {
           {Ddata.map((i) => (
             <tr key={i.id}>
               <td>{i.fname}</td>
-              <td>{i.mname}</td>
+              <td>{title}</td>
               <td>{i.nof}</td>
             </tr>
           ))}
