@@ -1,14 +1,14 @@
 import { Button, Form, Input } from "antd";
-import React, { useState } from "react";
+import React from "react";
 
-const TicketDetails = (newAddData, Ddata) => {
+const TicketDetails = ({ newAddData, Ddata }) => {
   const [form] = Form.useForm();
+  console.log("Ddata", Ddata);
 
   const onFinish = (values) => {
     newAddData(values);
     form.resetFields();
   };
-  console.log("Ddata", Ddata);
 
   return (
     <div>
@@ -24,9 +24,11 @@ const TicketDetails = (newAddData, Ddata) => {
         </Form.Item>
       </Form>
 
-      {Ddata.map((i, index) => (
-        <li>{i.fname} </li>
-      ))}
+      {/* {Ddata.map((i) => (
+        <li>
+          {i.fname} <Button>Update</Button>
+        </li>
+      ))} */}
     </div>
   );
 };
