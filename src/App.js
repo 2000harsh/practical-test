@@ -13,11 +13,13 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route path="/" element={<ViewTicket />} />
         <Route
-          path="/"
-          element={<ViewTicket newAddData={newAddData} Ddata={DisplayData} />}
+          path="/ticketDetails"
+          element={
+            <TicketDetails newAddData={newAddData} Ddata={DisplayData} />
+          }
         />
-        <Route path="/ticketDetails" element={<TicketDetails />} />
       </Routes>
     </div>
   );
