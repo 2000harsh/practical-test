@@ -1,13 +1,14 @@
 import { Button, Form, Input } from "antd";
 import React, { useState } from "react";
 
-const TicketDetails = (newAddData) => {
+const TicketDetails = (newAddData, Ddata) => {
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
     newAddData(values);
     form.resetFields();
-    console.log(values);
+
+    console.log("data", Ddata);
   };
 
   return (
